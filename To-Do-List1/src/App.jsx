@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import TodoItemFactory from "./TodoItemFactory";
 import TodoItem from "./TodoItem";
+import TodoNav from "./todoNav";
 import TodoForm from "./todoform";
-import TodoNav from "./todoform";
 
 function App() {
   const [formData, setFormData] = useState({
