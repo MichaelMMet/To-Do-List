@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
 }
 
@@ -39,4 +39,56 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+/* body */
+
+body{
+  padding: 0px;
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Todo Item style */
+
+.todo-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Align items in the center horizontally */
+  justify-content: center;  /* Align items in the center vertically */
+  height: 100%;  /* Make the container take up the full height of its parent */
+}
+
+
+/* nav */
+
+
+.nav-container {
+  display: flex;
+  flex-direction: column;  /* Set the flex direction to column */
+  height: 100vh;
+  left: 0;
+}
+
+.nav-section {
+  display: flex;
+  flex-direction: column;  /* Set the flex direction to column */
+}
+
+
+/* Form style */
+.form-container {
+  position: fixed; /* Change from absolute to fixed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the element using translate */
 }

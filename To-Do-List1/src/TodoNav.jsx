@@ -7,7 +7,11 @@ const TodoNav = ({ onSubmit }) => {
         <h1>DO IT!</h1>
         <p>logo here</p>
         {/* Use onClick for button click events */}
-        <button className="new-item" onClick={onSubmit}></button>
+        <div className="nav-section">
+          <button className="new-item" onClick={onSubmit}>
+            Add a new item!
+          </button>
+        </div>
       </div>
       <div className="nav-section"></div>
     </div>

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import TodoItemFactory from "./TodoItemFactory";
 import TodoItem from "./TodoItem";
-import TodoNav from "./todoNav";
-import TodoForm from "./todoform";
+import TodoNav from "./TodoNav";
+import TodoForm from "./TodoForm";
+import "./App.css";
 
 function App() {
   const [formData, setFormData] = useState({
     title: "",
-    dueDate: "", // Corrected property name
     description: "",
+    dueDate: "", // Corrected property name
     priority: "",
     notes: "",
   });
@@ -63,7 +64,6 @@ function App() {
   return (
     <div>
       <div className="main-container">
-        <header className="header">Do It!</header>
         <TodoNav onSubmit={toggleFormVisibility} />
 
         {/* Render TodoForm only if isFormVisible is true */}
@@ -75,9 +75,11 @@ function App() {
           />
         )}
 
-        {todoList.map((todoItem, index) => (
-          <TodoItem key={index} {...todoItem} />
-        ))}
+        <div className="todo-item-container">
+          {todoList.map((todoItem, index) => (
+            <TodoItem key={index} {...todoItem} className="todo-item" />
+          ))}
+        </div>
       </div>
     </div>
   );
