@@ -3,13 +3,14 @@ import TodoItem from "./TodoItem";
 
 // TodoItemFactory to create todoList items
 class TodoItemFactory {
-  createTodoItem(title, description, dueDate, priority, notes) {
+  createTodoItem(title, description, dueDate, priority, notes, category) {
     return {
       title,
       description,
       dueDate,
       priority,
       notes,
+      category,
     };
   }
 }

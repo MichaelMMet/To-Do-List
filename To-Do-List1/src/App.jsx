@@ -12,9 +12,11 @@ function App() {
     dueDate: "", // Corrected property name
     priority: "",
     notes: "",
+    category: "",
   });
 
   const [todoList, setTodoList] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const [isFormVisible, setIsFormVisible] = useState(false); // State for form visibility
 
@@ -69,12 +71,20 @@ function App() {
     });
   };
 
+  const addCategory = (newCategory) => {
+    setCategories((prevCategories) => [...prevCategories, newCategory]);
+  };
+
   console.log("formData in App component:", formData); // Add this line
 
   return (
     <div>
       <div className="main-container">
-        <TodoNav onSubmit={toggleFormVisibility} />
+        <TodoNav
+          onSubmit={toggleFormVisibility}
+          onAddCategory={addCategory}
+          categories={categories}
+        />
 
         {/* Render TodoForm only if isFormVisible is true */}
         {isFormVisible && (
