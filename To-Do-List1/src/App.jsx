@@ -53,10 +53,20 @@ function App() {
       priority: "",
       notes: "",
     });
+
+    toggleFormVisibility();
   };
 
   const toggleFormVisibility = () => {
     setIsFormVisible(!isFormVisible);
+  };
+
+  const updateTodoItem = (index, newData) => {
+    setTodoList((prevTodoList) => {
+      const updatedList = [...prevTodoList];
+      updatedList[index] = { ...newData };
+      return updatedList;
+    });
   };
 
   console.log("formData in App component:", formData); // Add this line
@@ -77,7 +87,13 @@ function App() {
 
         <div className="todo-item-container">
           {todoList.map((todoItem, index) => (
-            <TodoItem key={index} {...todoItem} className="todo-item" />
+            <TodoItem
+              key={index}
+              index={index}
+              updateTodoItem={updateTodoItem}
+              {...todoItem}
+              className="todo-item"
+            />
           ))}
         </div>
       </div>

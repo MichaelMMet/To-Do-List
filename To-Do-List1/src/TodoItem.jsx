@@ -6,11 +6,9 @@ class TodoItem extends React.Component {
     super(props);
     this.state = {
       completed: false,
+      editing: false,
+      updatedData: { ...props }, // Clone props for editing
     };
-  }
-
-  markAsCompleted() {
-    this.setState({ completed: true });
   }
 
   markAsCompleted() {
@@ -24,11 +22,83 @@ class TodoItem extends React.Component {
   finishEditing() {
     this.setState({ editing: false });
     // Add logic to update the todo item with the new data
-    // You can emit an event or callback to the parent component to handle the update
+    this.props.updateTodoItem(this.props.index, this.state.updatedData);
+  }
+
+  handleInputChange(e) {
+    const { name, value } = e.target;
+    this.setState((prevState) => ({
+      updatedData: {
+        ...prevState.updatedData,
+        [name]: value,
+      },
+    }));
   }
 
   render() {
-    const { title, description, dueDate, priority, notes } = this.props;
+    const { title, description, dueDate, priority, notes } =
+      this.state.updatedData;
+
+    if (this.state.editing) {
+      return (
+        <div className="edit-container">
+          <div className="edit-part">
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={title}
+              onChange={(e) => this.handleInputChange(e)}
+            />
+          </div>
+          <div className="edit-part">
+            <label htmlFor="desc">Description</label>
+            <input
+              type="text"
+              id="desc"
+              name="description"
+              value={description}
+              onChange={(e) => this.handleInputChange(e)}
+            />
+          </div>
+          <div className="edit-part">
+            <label htmlFor="date">Date:</label>
+            <input
+              type="date"
+              id="date"
+              name="dueDate"
+              value={dueDate}
+              onChange={(e) => this.handleInputChange(e)}
+            />
+          </div>
+          <div className="edit-part">
+            <label htmlFor="prio">Priority:</label>
+            <input
+              type="text"
+              id="prio"
+              name="priority"
+              value={priority}
+              onChange={(e) => this.handleInputChange(e)}
+            />
+          </div>
+          <label htmlFor="notes">Notes</label>
+          <div className="edit-part">
+            <input
+              type="text"
+              id="notes"
+              name="notes"
+              value={notes}
+              onChange={(e) => this.handleInputChange(e)}
+            />
+          </div>
+          <div className="edit-part">
+            {" "}
+            <button onClick={() => this.finishEditing()}>Save Changes</button>
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div>
@@ -38,7 +108,7 @@ class TodoItem extends React.Component {
         <p>Priority: {priority}</p>
         <p>Notes: {notes}</p>
         <p>Completed: {this.state.completed ? "Yes" : "No"}</p>
-        <button onClick={changeInfo}>Edit Info</button>
+        <button onClick={() => this.startEditing()}>Edit Info</button>
       </div>
     );
   }
