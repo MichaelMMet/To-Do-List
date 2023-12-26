@@ -13,6 +13,20 @@ class TodoItem extends React.Component {
     this.setState({ completed: true });
   }
 
+  markAsCompleted() {
+    this.setState({ completed: true });
+  }
+
+  startEditing() {
+    this.setState({ editing: true });
+  }
+
+  finishEditing() {
+    this.setState({ editing: false });
+    // Add logic to update the todo item with the new data
+    // You can emit an event or callback to the parent component to handle the update
+  }
+
   render() {
     const { title, description, dueDate, priority, notes } = this.props;
 
@@ -24,6 +38,7 @@ class TodoItem extends React.Component {
         <p>Priority: {priority}</p>
         <p>Notes: {notes}</p>
         <p>Completed: {this.state.completed ? "Yes" : "No"}</p>
+        <button onClick={changeInfo}>Edit Info</button>
       </div>
     );
   }
