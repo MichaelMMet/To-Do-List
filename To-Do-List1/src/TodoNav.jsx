@@ -8,7 +8,8 @@ const TodoNav = ({ onSubmit, onAddCategory, categories, onRemoveCategory }) => {
     setNewCategory(e.target.value);
   };
 
-  const handleAddCategory = () => {
+  const handleAddCategory = (e) => {
+    e.preventDefault();
     onAddCategory(newCategory);
     setNewCategory(""); // Clear input after adding a category
   };

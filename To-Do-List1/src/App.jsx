@@ -75,6 +75,12 @@ function App() {
     setCategories((prevCategories) => [...prevCategories, newCategory]);
   };
 
+  const removeCategory = (categoryToRemove) => {
+    setCategories((prevCategories) =>
+      prevCategories.filter((category) => category !== categoryToRemove)
+    );
+  };
+
   console.log("formData in App component:", formData); // Add this line
 
   return (
@@ -83,6 +89,7 @@ function App() {
         <TodoNav
           onSubmit={toggleFormVisibility}
           onAddCategory={addCategory}
+          onRemoveCategory={removeCategory}
           categories={categories}
         />
 
