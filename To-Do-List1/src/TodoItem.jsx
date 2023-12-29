@@ -82,8 +82,9 @@ class TodoItem extends React.Component {
               onChange={(e) => this.handleInputChange(e)}
             />
           </div>
-          <label htmlFor="notes">Notes</label>
+
           <div className="edit-part">
+            <label htmlFor="notes">Notes</label>
             <input
               type="text"
               id="notes"

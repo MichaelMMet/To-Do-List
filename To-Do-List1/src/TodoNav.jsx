@@ -1,7 +1,13 @@
 import React from "react";
 import { useState } from "react";
 
-const TodoNav = ({ onSubmit, onAddCategory, categories, onRemoveCategory }) => {
+const TodoNav = ({
+  onSubmit,
+  onAddCategory,
+  categories,
+  onRemoveCategory,
+  onCategoryClick,
+}) => {
   const [newCategory, setNewCategory] = useState("");
 
   const handleCategoryChange = (e) => {
@@ -42,19 +48,18 @@ const TodoNav = ({ onSubmit, onAddCategory, categories, onRemoveCategory }) => {
         </div>
       </div>
       <div className="nav-section">
-        <div className="nav-section">
-          <h3>Categories:</h3>
-          <ul>
-            {categories.map((category, index) => (
-              <li key={index}>
-                {category}
-                <button onClick={() => onRemoveCategory(category)}>
-                  Remove
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <h3>Categories:</h3>
+        <ul>
+          {categories.map((category, index) => (
+            <li key={index} onClick={() => onCategoryClick(category)}>
+              {category}
+              {console.log("Categories:" + categories)}
+              {console.log("Category:" + category)}
+
+              <button onClick={() => onRemoveCategory(category)}>Remove</button>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

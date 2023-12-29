@@ -17,6 +17,7 @@ function App() {
 
   const [todoList, setTodoList] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const [isFormVisible, setIsFormVisible] = useState(false); // State for form visibility
 
@@ -41,7 +42,8 @@ function App() {
       formData.description,
       formData.dueDate,
       formData.priority,
-      formData.notes
+      formData.notes,
+      formData.category
     );
 
     // Add the new todoItem to the todoList
@@ -54,6 +56,7 @@ function App() {
       dueDate: "",
       priority: "",
       notes: "",
+      category: "",
     });
 
     toggleFormVisibility();
@@ -81,6 +84,17 @@ function App() {
     );
   };
 
+  const onCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
+
+  const filteredTodoList = selectedCategory
+    ? todoList.filter((todo) => todo.category === selectedCategory)
+    : todoList;
+
+  console.log("Selected Category:", selectedCategory);
+  console.log("Filtered Todo List:", filteredTodoList);
+
   console.log("formData in App component:", formData); // Add this line
 
   return (
@@ -90,6 +104,7 @@ function App() {
           onSubmit={toggleFormVisibility}
           onAddCategory={addCategory}
           onRemoveCategory={removeCategory}
+          onCategoryClick={onCategoryClick}
           categories={categories}
         />
 
@@ -101,9 +116,8 @@ function App() {
             onSubmit={handleSubmit}
           />
         )}
-
         <div className="todo-item-container">
-          {todoList.map((todoItem, index) => (
+          {filteredTodoList.map((todoItem, index) => (
             <TodoItem
               key={index}
               index={index}

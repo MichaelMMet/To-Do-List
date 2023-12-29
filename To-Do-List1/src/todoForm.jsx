@@ -58,15 +58,16 @@ const TodoForm = ({ formData, onInputChange, onSubmit }) => {
           />
         </div>
         <div className="form-part">
-          <label htmlFor="category">Notes:</label>
+          <label htmlFor="category">Category:</label>
           <input
             type="text"
             name="category"
             id="category"
-            value={formData.notes}
+            value={formData.category}
             onChange={onInputChange}
           />
         </div>
+
         {/* Add similar input fields for other properties (description, dueDate, priority, notes) */}
         <button type="submit">Add TodoItem</button>
       </form>
