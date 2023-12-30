@@ -7,8 +7,17 @@ class TodoItem extends React.Component {
     this.state = {
       completed: false,
       editing: false,
-      updatedData: { ...props }, // Clone props for editing
+      updatedData: { ...props },
     };
+  }
+
+  //checks if  the prevProps are equal to the current and if not they get updated
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({
+        updatedData: { ...this.props },
+      });
+    }
   }
 
   markAsCompleted() {
@@ -21,7 +30,6 @@ class TodoItem extends React.Component {
 
   finishEditing() {
     this.setState({ editing: false });
-    // Add logic to update the todo item with the new data
     this.props.updateTodoItem(this.props.index, this.state.updatedData);
   }
 

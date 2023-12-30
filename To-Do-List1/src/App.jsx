@@ -85,11 +85,15 @@ function App() {
   };
 
   const onCategoryClick = (category) => {
-    setSelectedCategory(category);
+    console.log("Clicked on category:", category);
+
+    setSelectedCategory(category.toLowerCase());
   };
 
   const filteredTodoList = selectedCategory
-    ? todoList.filter((todo) => todo.category === selectedCategory)
+    ? todoList.filter(
+        (todo) => todo.category.toLowerCase() === selectedCategory
+      )
     : todoList;
 
   console.log("Selected Category:", selectedCategory);
@@ -106,6 +110,7 @@ function App() {
           onRemoveCategory={removeCategory}
           onCategoryClick={onCategoryClick}
           categories={categories}
+          selectedCategory={selectedCategory}
         />
 
         {/* Render TodoForm only if isFormVisible is true */}
@@ -117,6 +122,7 @@ function App() {
           />
         )}
         <div className="todo-item-container">
+          {console.log("Filtered Todo List 2nd:", filteredTodoList)}
           {filteredTodoList.map((todoItem, index) => (
             <TodoItem
               key={index}

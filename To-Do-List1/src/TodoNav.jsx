@@ -7,7 +7,10 @@ const TodoNav = ({
   categories,
   onRemoveCategory,
   onCategoryClick,
+  selectedCategory,
 }) => {
+  console.log("TodoNav rendering. Categories:", categories);
+  console.log("TodoNav rendering. Selected Category:", selectedCategory);
   const [newCategory, setNewCategory] = useState("");
 
   const handleCategoryChange = (e) => {
@@ -53,8 +56,6 @@ const TodoNav = ({
           {categories.map((category, index) => (
             <li key={index} onClick={() => onCategoryClick(category)}>
               {category}
-              {console.log("Categories:" + categories)}
-              {console.log("Category:" + category)}
 
               <button onClick={() => onRemoveCategory(category)}>Remove</button>
             </li>
