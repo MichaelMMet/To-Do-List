@@ -122,30 +122,32 @@ class TodoItem extends React.Component {
             aria-expanded="false"
             aria-controls="collapseExample"
           >
-            Title: {title}
+            <span className="important">Title: </span>
+            {title}
           </button>
 
           <div className="collapse" id={collapseId}>
             <div className="card card-body">
-              <p>Description: {description}</p>
-              <p>Due Date: {dueDate}</p>
-              <p>Priority: {priority}</p>
-              <p>Notes: {notes}</p>
-              <p>Completed: {this.state.completed ? "Yes" : "No"}</p>
+              <p>
+                <span className="important">Description:</span> {description}
+              </p>
+              <p>
+                <span className="important">Due Date:</span> {dueDate}
+              </p>
+              <p>
+                <span className="important">Priority:</span> {priority}
+              </p>
+              <p>
+                <span className="important">Notes:</span> {notes}
+              </p>
+              <p>
+                <span className="important">Completed:</span>{" "}
+                {this.state.completed ? "Yes" : "No"}
+              </p>
               <button onClick={() => this.startEditing()}>Edit Info</button>
             </div>
           </div>
         </div>
-
-        {/*   <div>
-        <h3>Title: {title}</h3>
-        <p>Description: {description}</p>
-        <p>Due Date: {dueDate}</p>
-        <p>Priority: {priority}</p>
-        <p>Notes: {notes}</p>
-        <p>Completed: {this.state.completed ? "Yes" : "No"}</p>
-        <button onClick={() => this.startEditing()}>Edit Info</button>
-      </div> */}
       </>
     );
   }

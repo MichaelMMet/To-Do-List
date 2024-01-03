@@ -1,9 +1,30 @@
 #root {
-  max-width: 1280px;
+  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  --main-bg-color: peachpuff;
+  --main-text-color: lightcoral;
+  --header-font-size: 24px;
 }
+
+
+@font-face {
+  font-family: 'Rubik';
+  src: url("C:\Repos\To-Do\To-Do-List\To-Do-List1\src\assets\fonts\RubikScribble-Regular.ttf");
+}
+
+button{
+  background-color: peachpuff;
+}
+
+input{
+  background-color: rgb(260, 223, 190);
+  color: black;
+}
+
+
 
 
 
@@ -25,14 +46,13 @@ body{
 }
 
 p{
-  color: lightcoral;
+  color: var(--main-text-color);
 }
 
 h1{
-  color: lightcoral;
+  color: var(--main-text-color);
 }
 
-/* Todo Item style */
 
 /* Todo Item style */
 .todo-item-container {
@@ -45,6 +65,24 @@ h1{
   left: 0px;
 }
 
+.btn{
+  background-color: peachpuff;
+  border: none;
+  color: var(--main-text-color);
+  font-size: 20px;
+}
+
+.important{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.card-body{
+  background-color: var(--main-bg-color);
+  border: 1px solid var(--main-text-color);
+  padding: 20px;
+}
+
 /* nav */
 
 
@@ -53,11 +91,83 @@ h1{
   flex-direction: column;  /* Set the flex direction to column */
   height: 100vh;
   left: 0;
+  gap: 20px;
+  margin: 10px;
+  padding: 20px;
+  border-right: 1px dashed lightcoral
 }
 
+#add-category{
+  margin-top: 10px;
+  background-color: peachpuff;
+  color: var(--main-text-color);
+  border: 1px solid var(--main-text-color)
+}
+
+#add-item{
+  margin-top: 10px;
+  background-color: rgb(255, 218, 185);
+  color: var(--main-text-color);
+  border: 1px solid var(--main-text-color);
+ 
+}
+
+#category{
+  background-color: rgb(260, 223, 190);
+  color: black;
+}
+/* 
+#add-item::after {
+  box-shadow: inset 0 0 0 1px red;
+}
+#add-item::before {
+  background: red;
+  box-shadow: inset 0 0 0 red;
+}
+#add-item:hover::before {
+  box-shadow: inset 0 0 0 1px red;
+}
+ */
+
+.category-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.category-item{
+  margin: 10px;
+  color: lightcoral;
+}
+
+#remove-cat-btn{
+  margin-left: 10px;
+}
+
+.category-list button{
+ background-color: peachpuff;
+ color: lightcoral;
+ border: 1px solid var(--main-text-color)
+
+}
+
+#add-item:hover {
+  transition: 1s ease-in-out;
+  background: rgb(270, 233, 200);
+}
+
+
+.fa-clipboard{
+  font-size: 40px;
+  color: lightcoral;
+}
 .nav-section {
   display: flex;
   flex-direction: column;  /* Set the flex direction to column */
+  gap: 20px;
+}
+
+.web-name{
+  font-family: 'Rubik', Helvetica, sans-serif;
 }
 
 
@@ -86,4 +196,23 @@ h1{
 input{
   text-align: left;
 
+}
+
+/* edit form */
+
+.edit-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  height: 100vh;
+  margin-left: 27vw;
+}
+
+.edit-part{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
 }

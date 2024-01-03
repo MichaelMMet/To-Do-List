@@ -26,11 +26,11 @@ const TodoNav = ({
   return (
     <div className="nav-container">
       <div className="nav-section">
-        <h1>DO IT!</h1>
-        <p>logo here</p>
+        <h1 className="web-name">DO IT!</h1>
+        <i class="fa-solid fa-clipboard"></i>{" "}
         {/* Use onClick for button click events */}
         <div className="nav-section">
-          <button className="new-item" onClick={onSubmit}>
+          <button id="add-item" onClick={onSubmit}>
             Add a new item!
           </button>
         </div>
@@ -46,18 +46,29 @@ const TodoNav = ({
                 onChange={handleCategoryChange}
               />
             </div>
-            <button type="submit">Add Category</button>
+            <button type="submit" id="add-category">
+              Add Category
+            </button>
           </form>
         </div>
       </div>
-      <div className="nav-section">
+      <div className="nav-section category-section">
         <h3>Categories:</h3>
-        <ul>
+        <ul className="category-list">
           {categories.map((category, index) => (
-            <li key={index} onClick={() => onCategoryClick(category)}>
+            <li
+              key={index}
+              className="category-item"
+              onClick={() => onCategoryClick(category)}
+            >
               {category}
 
-              <button onClick={() => onRemoveCategory(category)}>Remove</button>
+              <button
+                id="remove-cat-btn"
+                onClick={() => onRemoveCategory(category)}
+              >
+                Remove
+              </button>
             </li>
           ))}
         </ul>
