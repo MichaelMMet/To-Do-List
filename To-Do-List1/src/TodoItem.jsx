@@ -47,6 +47,8 @@ class TodoItem extends React.Component {
     const { title, description, dueDate, priority, notes } =
       this.state.updatedData;
 
+    const collapseId = `collapse_${this.props.index}`; // Generate unique ID
+
     if (this.state.editing) {
       return (
         <div className="edit-container">
@@ -110,7 +112,32 @@ class TodoItem extends React.Component {
     }
 
     return (
-      <div>
+      <>
+        <div>
+          <button
+            className="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target={`#${collapseId}`}
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            Title: {title}
+          </button>
+
+          <div className="collapse" id={collapseId}>
+            <div className="card card-body">
+              <p>Description: {description}</p>
+              <p>Due Date: {dueDate}</p>
+              <p>Priority: {priority}</p>
+              <p>Notes: {notes}</p>
+              <p>Completed: {this.state.completed ? "Yes" : "No"}</p>
+              <button onClick={() => this.startEditing()}>Edit Info</button>
+            </div>
+          </div>
+        </div>
+
+        {/*   <div>
         <h3>Title: {title}</h3>
         <p>Description: {description}</p>
         <p>Due Date: {dueDate}</p>
@@ -118,7 +145,8 @@ class TodoItem extends React.Component {
         <p>Notes: {notes}</p>
         <p>Completed: {this.state.completed ? "Yes" : "No"}</p>
         <button onClick={() => this.startEditing()}>Edit Info</button>
-      </div>
+      </div> */}
+      </>
     );
   }
 }

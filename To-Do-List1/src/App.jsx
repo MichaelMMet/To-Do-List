@@ -1,8 +1,11 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import React, { useState } from "react";
 import TodoItemFactory from "./TodoItemFactory";
 import TodoItem from "./TodoItem";
 import TodoNav from "./TodoNav";
 import TodoForm from "./TodoForm";
+
 import "./App.css";
 
 function App() {

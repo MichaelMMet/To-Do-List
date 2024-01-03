@@ -22,7 +22,6 @@ body{
   width: 100vw;
   height: 100vh;
   display: flex;
-  align-items: center;
 }
 
 p{
@@ -63,9 +62,28 @@ h1{
 
 
 /* Form style */
+
+
+
+
 .form-container {
-  position: fixed; /* Change from absolute to fixed */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the element using translate */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  height: 100vh;
+  margin-left: 27vw;
+ 
+}
+.form-part{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+
+input{
+  text-align: left;
+
 }
