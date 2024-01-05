@@ -115,7 +115,7 @@ class TodoItem extends React.Component {
       <>
         <div>
           <button
-            className="btn btn-primary"
+            className="btn expand-btn"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target={`#${collapseId}`}

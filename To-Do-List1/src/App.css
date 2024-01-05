@@ -65,12 +65,23 @@ h1{
   left: 0px;
 }
 
-.btn{
+.expand-btn{
   background-color: peachpuff;
   border: none;
   color: var(--main-text-color);
   font-size: 20px;
 }
+
+.expand-btn:hover{
+  background-color: var(--main-text-color);
+  color: var(--main-bg-color);
+}
+
+.expand-btn:active {
+  background-color: var(--main-text-color);
+  color: black;
+}
+
 
 .important{
   font-weight: bold;
